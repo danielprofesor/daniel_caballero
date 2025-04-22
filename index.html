@@ -5,64 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Caballero López</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f0f4f8;
-      color: #333;
+    :root {
+      --color-primario: #4a90e2;
+      --color-secundario: #f0f4f8;
+      --texto: #333;
+      --acento: #00796b;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-secundario);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
     header {
-      background-color: #4a90e2;
+      background-color: var(--color-primario);
       color: white;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 2rem;
+      align-items: center;
+      padding: 1.5rem 2rem;
       flex-wrap: wrap;
     }
-    header .titulo {
+
+    .titulo {
       font-size: 2rem;
       font-weight: bold;
     }
-    header .subtitulo {
-      font-size: 1.2rem;
+
+    .subtitulo {
+      font-size: 1rem;
+      opacity: 0.9;
     }
+
     header img {
       height: 60px;
-      margin-left: 1rem;
     }
+
     nav {
-      background-color: #fff;
+      background-color: white;
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 1rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     nav a {
+      color: var(--color-primario);
       text-decoration: none;
-      color: #4a90e2;
-      font-weight: bold;
+      font-weight: 600;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     .imagen-principal {
       width: 100%;
       max-height: 400px;
       object-fit: cover;
       display: block;
     }
+
     section {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
+
     .frase {
       background-color: #e0f7fa;
       padding: 1rem;
       margin-bottom: 1rem;
-      border-left: 5px solid #00796b;
+      border-left: 5px solid var(--acento);
+    }
+
+    .libros {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .libro {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .libro:hover {
+      transform: scale(1.02);
+    }
+
+    .libro img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .libro-content {
+      padding: 1rem;
+    }
+
+    .libro-content h3 {
+      color: var(--color-primario);
+      margin-bottom: 0.5rem;
+    }
+
+    .libro-content p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: var(--color-primario);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .boton:hover {
+      background-color: #357ABD;
     }
   </style>
 </head>
@@ -73,7 +150,7 @@
       <div class="titulo">Daniel Caballero López</div>
       <div class="subtitulo">Crecimiento Exponencial</div>
     </div>
-    <img src="Logo.jpg" alt="Logo" />
+    <img src="logo.jpg" alt="Logo">
   </header>
 
   <nav>
@@ -82,7 +159,7 @@
     <a href="#eventos">Eventos</a>
   </nav>
 
-  <img class="imagen-principal" src="destacado.jpg" alt="Imagen destacada" />
+  <img class="imagen-principal" src="destacado.jpg" alt="Imagen destacada">
 
   <section>
     <h2>Frases Inspiradoras</h2>
@@ -90,6 +167,29 @@
     <div class="frase">"El crecimiento personal no es una meta, es un camino."</div>
     <div class="frase">"Cada día es una nueva oportunidad para ser una mejor versión de ti."</div>
     <div class="frase">"No tengas miedo de reinventarte y comenzar de nuevo."</div>
+  </section>
+
+  <section id="libros">
+    <h2>Mis Libros</h2>
+    <div class="libros">
+      <div class="libro">
+        <img src="libro1.jpg" alt="Libro 1">
+        <div class="libro-content">
+          <h3>Título del Libro 1</h3>
+          <p>Una guía transformadora para desarrollar tu potencial y avanzar en tu camino personal.</p>
+          <a href="#" class="boton">Leer más</a>
+        </div>
+      </div>
+
+      <div class="libro">
+        <img src="libro2.jpg" alt="Libro 2">
+        <div class="libro-content">
+          <h3>Título del Libro 2</h3>
+          <p>Descubre herramientas prácticas para vivir con propósito, claridad y confianza.</p>
+          <a href="#" class="boton">Leer más</a>
+        </div>
+      </div>
+    </div>
   </section>
 
 </body>
