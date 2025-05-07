@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Ikigai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    textarea {
+      width: 100%;
+      height: 60px;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      background-color: #e0ffe0;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Descubre tu Ikigai</h1>
+
+  <div id="quiz">
+    <div class="question">
+      <label>1. ¿Qué te encanta hacer, incluso sin que te paguen?</label>
+      <textarea id="q1"></textarea>
+    </div>
+    <div class="question">
+      <label>2. ¿Qué necesita el mundo que tú puedas ofrecer?</label>
+      <textarea id="q2"></textarea>
+    </div>
+    <div class="question">
+      <label>3. ¿Por qué cosas te pagarían sin dudar?</label>
+      <textarea id="q3"></textarea>
+    </div>
+    <div class="question">
+      <label>4. ¿En qué eres realmente bueno?</label>
+      <textarea id="q4"></textarea>
+    </div>
+    <button onclick="mostrarResultado()">Ver mi propósito</button>
+  </div>
+
+  <div id="result" style="display:none;"></div>
+
+  <script>
+    function mostrarResultado() {
+      const r1 = document.getElementById("q1").value.trim();
+      const r2 = document.getElementById("q2").value.trim();
+      const r3 = document.getElementById("q3").value.trim();
+      const r4 = document.getElementById("q4").value.trim();
+
+      if (!r1 || !r2 || !r3 || !r4) {
+        alert("Por favor, responde todas las preguntas.");
+        return;
+      }
+
+      const resultText = `
+        <h2>Tu posible Ikigai:</h2>
+        <p><strong>Pasión:</strong> ${r1}</p>
+        <p><strong>Misión:</strong> ${r2}</p>
+        <p><strong>Profesión:</strong> ${r3}</p>
+        <p><strong>Vocación:</strong> ${r4}</p>
+        <p>✨ Tu Ikigai podría estar en la intersección entre lo que amas, lo que el mundo necesita, lo que te pueden pagar y en lo que eres excelente. Usa estas respuestas como guía para reflexionar.</p>
+      `;
+
+      document.getElementById("result").innerHTML = resultText;
+      document.getElementById("result").style.display = "block";
+      document.getElementById("quiz").style.display = "none";
+    }
+  </script>
+</body>
+</html>
